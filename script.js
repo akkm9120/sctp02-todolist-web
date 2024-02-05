@@ -1,15 +1,11 @@
-function main(){
- let todos = [];
+async function main(){
 
- createTodos(todos,"Plant seeds","Medium");
- createTodos(todos,"clear grass near plants","High")
-
-
+    let todos = await loadTasks();
+    console.log(todos);
 }
+main();
 
-function renderTasks(todos){
-    for(task of todos){
-        document.querySelector("#taskList").innerHTML = document.createElement("li");
-        
-    }
-}
+document.querySelector(".btnSave").addEventListener("click",()=>{
+    saveTasks();
+    loadTasks();
+})
